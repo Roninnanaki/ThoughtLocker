@@ -1,32 +1,25 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  subject { page }
 
-  describe "Home page" do
-
-    it "should have the base title" do
-      visit '/static_pages/home'
-      page.should have_selector('title',
-                        :text => "ThoughtLocker")
-    end
-
-    it "should have a custom page title" do
-      visit '/static_pages/home'
-      page.should have_selector('title', :text => '| User Home')
-    end
+  describe "Login page" do
+	before { visit login_path }
+	
+    it { should have_selector('title', :text => full_title('Login')) }
   end
   
   describe "About page" do
+  	before { visit about_path }
   
-  	it "should have the h1 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('h1', :text => 'About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('title',
-        :text => ' | About Us')
-    end
+  	it { should have_selector('title', :text => full_title('About')) }
+    it { should have_selector('h1', :text => 'About') }
+  end
+  
+  describe "Contact page" do
+	before { visit contact_path }
+	
+    it { should have_selector('title', :text => full_title('Contact')) }
+    it { should have_selector('h1', :text => "Contact") }
   end
 end

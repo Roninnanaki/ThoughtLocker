@@ -1,7 +1,15 @@
 ThoughtLocker::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/about"
+  get "users/new"
 
+  root :to => 'static_pages#login'
+  
+  match '/signup' => 'users#new'
+
+  match '/login'   => 'static_pages#login'
+  match '/about'   => 'static_pages#about'
+  match '/contact' => 'static_pages#contact'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
