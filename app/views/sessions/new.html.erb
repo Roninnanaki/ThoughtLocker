@@ -1,0 +1,19 @@
+<% provide(:title, "Sign in") %>
+<div class="center">
+  <h1>Welcome to ThoughtLocker</h1>
+  <h2>Sign in</h2>
+</div>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, :url => sessions_path) do |f| %>
+
+      <%= f.text_field :email, :id => "login_email_form", :placeholder => "Email" %>
+
+      <%= f.password_field :password, :id => "login_password_form", :placeholder => "Password" %>
+
+      <%= f.submit "Login", :class => "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>

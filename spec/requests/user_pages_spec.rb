@@ -4,7 +4,7 @@ describe "User pages" do
   subject { page }
   
   before do
-    @user = User.create(:name => "Example User", :email => "user@example.com", 
+    @user = User.create(:name => "user", :email => "user@example.com", 
          :password =>  "foobar10", :password_confirmation => "foobar10")
   end
 
@@ -33,14 +33,20 @@ describe "User pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+      
+      describe "error messages" do
+        before { click_button submit }
+
+        it { should have_selector('title', :text => 'Sign up') }
+        it { should have_content('error') }
+      end
     end
 
     describe "with valid information" do
       before do
-        fill_in "Name",         :with => "Example User"
-        fill_in "Email",        :with => "user@example.com"
-        fill_in "Password",     :with => "foobar10"
-        fill_in "Confirmation", :with => "foobar10"
+        fill_in 'email_form',        :with => "user@example.com"
+        fill_in 'password_form',     :with => "foobar10"
+        fill_in 'password_confirmation_form', :with => "foobar10"
       end
 
       it "should create a user" do

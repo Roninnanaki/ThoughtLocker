@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
+  	@hide_header_and_footer = true
   end
   
   def create
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
     @user.name = @user.email[/(.*?)(?=[@])/, 1]
     
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to the ThoughtLocker!"
       redirect_to @user
     else

@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe "StaticPages" do
   subject { page }
-
-  describe "Login page" do
-	before { visit login_path }
-	
-    it { should have_selector('title', :text => full_title('Login')) }
-  end
   
   describe "About page" do
   	before { visit about_path }

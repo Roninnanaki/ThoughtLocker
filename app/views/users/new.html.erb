@@ -7,14 +7,17 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
 	  <%= render 'shared/error_messages' %>
-	  
-      <%= f.text_field :email, :placeholder => "example@thoughtlocker.com" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
 
-      <%= f.password_field :password_confirmation, :placeholder => "Confirmation" %>
+      <%= f.text_field :email, :id => "email_form", :placeholder => "youremail@whereever.com" %>
+
+      <%= f.password_field :password, :id => "password_form", :placeholder => "Password" %>
+      
+      <%= f.password_field :password_confirmation,
+      			:id => "password_confirmation_form",
+      			:placeholder => "Password Confirmation" %>
 
       <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
-      <%= link_to "Login", login_path, :class => "btn btn-large btn-primary" %>
     <% end %>
+    <p>Old user? <%= link_to "Sign in", signin_path %></p>
   </div>
 </div>

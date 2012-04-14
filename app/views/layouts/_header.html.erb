@@ -4,12 +4,8 @@
 			<%= link_to "ThoughtLocker", login_path, :id => "logo" %>
 			<nav>
 				<ul class="nav pull-right">
-					<li>
-						<%= link_to "Home", '#' %>
-					</li>
-					<li>
-						<%= link_to "Logout", login_path %>
-					</li>
+						<li><%= link_to "Profile", current_user %></li>
+						<li><%= link_to "Sign out", signout_path, :method => "delete" %></li>
 				</ul>
 			</nav>
 		</div>
