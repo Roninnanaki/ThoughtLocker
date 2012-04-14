@@ -2,7 +2,7 @@ ThoughtLocker::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 
-  root :to => 'static_pages#login'
+  root :to => 'sessions#new'
   
   match '/signup' => 'users#new'
   match '/signin' => 'sessions#new'
