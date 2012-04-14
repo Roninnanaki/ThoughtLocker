@@ -3,3 +3,18 @@
   <h1>Welcome to ThoughtLocker</h1>
   <h2>Sign up and start blogging</h2>
 </div>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+	  <%= render 'shared/error_messages' %>
+	  
+      <%= f.text_field :email, :placeholder => "example@thoughtlocker.com" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+
+      <%= f.password_field :password_confirmation, :placeholder => "Confirmation" %>
+
+      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+      <%= link_to "Login", login_path, :class => "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
