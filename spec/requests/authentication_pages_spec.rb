@@ -32,7 +32,7 @@ describe "Authentication" do
       before do
         fill_in 'login_email_form',    :with => "user@example.com"
         fill_in 'login_password_form', :with => "foobar10"
-        #click_button submit
+        click_button submit
       end
     end
   end

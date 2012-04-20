@@ -14,7 +14,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(:name => "Example User", :email => "user@example.com", :password => "foobar10", :password_confirmation => "foobar10")
+    @user = User.new(:name => "user", :email => "user@example.com", :password => "foobar10", :password_confirmation => "foobar10")
   end
 
   subject { @user }
@@ -27,7 +27,8 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
-  it { should respond_to(:authenticate) }  
+  it { should respond_to(:authenticate) }
+  it { should respond_to(:blogs) } 
 
   it { should be_valid }
 

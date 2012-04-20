@@ -4,7 +4,7 @@ describe "User pages" do
   subject { page }
   
   before do
-    @user = User.create(:name => "user", :email => "user@example.com", 
+    @user = User.create( :name => "user", :email => "user@example.com", 
          :password =>  "foobar10", :password_confirmation => "foobar10")
   end
 
@@ -54,4 +54,38 @@ describe "User pages" do
       end
     end
   end
+  
+  # describe "edit" do
+#     
+#     before { visit edit_user_path(@user) }
+# 
+#     describe "page" do
+#       it { should have_selector('h1',    text: "Update your profile") }
+#       it { should have_selector('title', text: "Edit user") }
+#       it { should have_link('change', href: 'http://gravatar.com/emails') }
+#     end
+# 
+#     describe "with invalid information" do
+#       before { click_button "Save changes" }
+# 
+#       it { should have_content('error') }
+#     end
+#     
+#     describe "with valid information" do
+#       let(:new_email) { "new@example.com" }
+#       before do
+#       	fill_in 'update_name_form',                   with: "user"
+#         fill_in 'update_email_form',                  with: new_email
+#         fill_in 'update_password_form',               with: "foobar20"
+#         fill_in 'update_passord_confirmation_form' ,  with: "foobar20"
+#         click_button "Save changes"
+#       end
+# 
+#       it { should have_selector('title', text: "user") }
+#       it { should have_selector('div.alert.alert-success') }
+#       it { should have_link('Sign out', href: signout_path) }
+#       specify { @user.reload.name.should  == "user" }
+#       specify { @user.reload.email.should == new_email }
+#     end
+#   end
 end

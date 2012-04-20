@@ -1,0 +1,16 @@
+<div class="pop-up">
+	<% @blog.tags.build %>
+    <%= form_for(@blog) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.text_field :name, :id => "name_form", :placeholder => "Blog Name" %>
+      
+      <%= f.fields_for :tags do |tag_form| %>
+		  <div class="field">
+		    <%= tag_form.text_area :name, :id => "tag_form", :placeholder => "Tags" %>
+		  </div>
+	  <% end %>
+
+      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+    <% end %>
+</div>
