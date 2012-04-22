@@ -197,3 +197,42 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+/* user */
+
+aside .span4{
+	width: 180px;
+}
+
+.user-panel {
+	width: 180px;
+	padding-bottom: 0px;
+	h1 {
+		text-align: center;
+		.gravatar {
+		    width: 140px;
+		    margin: 10px; 
+		    margin-left: 20px;
+		    margin-right: 20px;
+		    padding: 0px;
+		    border-radius: 4px;
+		    overflow: hidden;
+		
+		}
+	}
+	.new-blog-link {
+		padding-top: 10px;
+		margin-left: 60px;
+		margin-right: 60px;
+	}
+	
+}
+
+.post-btn {
+	width: 60px;
+	margin-left: 45px;
+	margin-right: 45px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+

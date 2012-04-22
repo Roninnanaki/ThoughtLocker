@@ -17,17 +17,43 @@ class BlogsController < ApplicationController
 	
 	def edit
 	  @blog = Blog.find(params[:id])
+	  @tags = ""
+	  if !@blog.tags.nil?
+	  	@blog.tags.each do |i|
+	  		@tags += i.tag_name + ", "
+	  	end
+	  end
 	end
 	
 	def update
-		@blog = Blog.find(params[:id])
-		test = params[:tag].to_s
-		puts "\n\n\nhi\n\n\n" + test
-	    if @blog.update_attributes(params[:user])
-	      flash[:success] = "Blog updated!"
-	      redirect_to current_user
-	    else
-	      render 'edit'
-	    end 
+ 	  @blog = Blog.find(params[:id])
+      #@tag = @blog.tags.create(params[:tag])
+
+      string = params[:tags_list]
+      array = string.split(', ')
+      puts "\n\n\n\n::::::::::::HEY FIND ME " + array.to_s
+      
+      # array.each do |tag|
+#       	if !@blogs.tags.nil?
+#       		@blog.tags.each do |i|
+#       			if !i == tag
+#       				@blog.tags.build(:tag_name => tag).save
+#       			end
+#       		end
+#       	else
+#       		@blog.tags.build(:tag_name => tag).save
+#       	end
+#       end
+
+		array.each do |tag|
+			@blog.tags.build(:tag_name => tag).save
+		end
+
+	  if @blog.update_attributes(params[:user])
+	    flash[:success] = "Blog updated!"
+	    redirect_to current_user
+	  else
+	    render 'edit'
+	  end 
 	end
 end

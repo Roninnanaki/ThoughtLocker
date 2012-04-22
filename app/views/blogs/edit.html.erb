@@ -1,12 +1,12 @@
 <div class="pop-up">
 	<% @blog.tags.build %>
-    <%= form_for(@blog) do |blog_form| %>
-      <%= render 'shared/error_messages', object: blog_form.object %>
+    <%= form_for(@blog) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-      <%= blog_form.text_field :name, :id => "name_form", :placeholder => "Blog Name" %>
+      <%= f.text_field :name, :id => "name_form", :placeholder => "Blog Name" %>
       
-      <%= render :partial => '/tags/form', :locals {:form => blog_form } %>
+      <%= text_area_tag "tags_list", @tags, :placeholder => "Tags" %>
 
-      <%= blog_form.submit "Submit", :class => "btn btn-large btn-primary" %>
+      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
     <% end %>
 </div>

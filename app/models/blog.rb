@@ -1,5 +1,5 @@
 class Blog < ActiveRecord::Base
-	attr_accessible :name, :tags_attributes
+	attr_accessible :name, :tags_attributes, :tag_list
 	
 	validates :user_id, presence: true
 	validates :name, presence: true, :length => { :maximum => 100 }

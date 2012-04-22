@@ -5,6 +5,5 @@ class TagsController < ApplicationController
 
 	def create 
 		@tag = Tag.new(param[:tag])
-		@tag.blog_id = 
 	end
 end

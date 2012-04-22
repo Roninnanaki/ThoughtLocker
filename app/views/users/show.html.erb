@@ -1,14 +1,19 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
+
+  <aside class="user-span">
+    <section class="user-panel">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <%= link_to "New Blog", new_blog_path %>
+      
+      <%= link_to "Post", '#', :class => "btn btn-large btn-primary post-btn" %>
+      
+      <%= link_to "New Blog", new_blog_path, :class => "new-blog-link" %>
     </section>
   </aside>
+  
   <div class="span8">
     <% if @user.blogs.any? %>
       <h3>Blogs (<%= @user.blogs.count %>)</h3>
