@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
 	  @tags = ""
 	  if !@blog.tags.nil?
 	  	@blog.tags.each do |i|
-	  		@tags += i.tag_name + ", "
+	  		@tags += i.name + ", "
 	  	end
 	  end
 	end
@@ -31,23 +31,10 @@ class BlogsController < ApplicationController
 
       string = params[:tags_list]
       array = string.split(', ')
-      puts "\n\n\n\n::::::::::::HEY FIND ME " + array.to_s
-      
-      # array.each do |tag|
-#       	if !@blogs.tags.nil?
-#       		@blog.tags.each do |i|
-#       			if !i == tag
-#       				@blog.tags.build(:tag_name => tag).save
-#       			end
-#       		end
-#       	else
-#       		@blog.tags.build(:tag_name => tag).save
-#       	end
-#       end
 
-		array.each do |tag|
-			@blog.tags.build(:tag_name => tag).save
-		end
+	  array.each do |tag|
+		@blog.tags.find_or_create_by_name(tag)
+	  end
 
 	  if @blog.update_attributes(params[:user])
 	    flash[:success] = "Blog updated!"
@@ -55,5 +42,9 @@ class BlogsController < ApplicationController
 	  else
 	    render 'edit'
 	  end 
+	end
+	
+	def show
+		@blog = Blog.find(params[:id])
 	end
 end

@@ -1,0 +1,15 @@
+<div class="pop-up">
+    <%= form_for(@post) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.text_field :title, :id => "post_title_form", :placeholder => "Title" %>
+
+      <%= f.text_area :content, :id => "post_content_form", :placeholder => "Content" %>   
+      
+      <%= f.text_field :source, :id => "post_source_form", :placeholder => "Source" %>
+      
+      <%= select_tag( :blog, options_for_select(@blog_hash)) %>
+      
+      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+    <% end %>
+</div>

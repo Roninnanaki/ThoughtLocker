@@ -3,6 +3,7 @@ ThoughtLocker::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :blogs
   resources :tags
+  resources :posts
 
   root :to => 'sessions#new'
   

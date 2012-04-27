@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-	attr_accessible :tag_name
-	belongs_to :blog
-	validates :blog_id, :presence => true
+	attr_accessible :name
+	has_many :taggings, dependent: :destroy
+	has_many :blogs, :through => :taggings
 end
