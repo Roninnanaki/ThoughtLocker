@@ -1,0 +1,9 @@
+<% provide(:title, "Search") %>
+
+<ul class="users">
+  <% @blogs.each do |blog| %>
+    <li>
+      <%= link_to blog.name, blog %>
+    </li>
+  <% end %>
+</ul>

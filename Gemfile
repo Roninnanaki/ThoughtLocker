@@ -7,6 +7,8 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'paperclip', '~> 3.0'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

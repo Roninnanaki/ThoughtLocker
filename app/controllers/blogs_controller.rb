@@ -1,6 +1,13 @@
 class BlogsController < ApplicationController
 	before_filter :signed_in_user
 
+	def index
+		@search = Blog.search do
+			fulltext params[:search]
+		end
+		@blogs = @search.results
+	end
+		
 	def new
 		@blog = Blog.new
 	end
