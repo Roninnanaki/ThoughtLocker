@@ -1,10 +1,11 @@
 <div class="pop-up">
-    <%= form_for(@post) do |f| %>
+    <%= form_for(@post, :html => { :multipart => true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.text_field :title, :id => "post_title_form", :placeholder => "Title" %>
 
       <%= f.text_area :content, :id => "post_content_form", :placeholder => "Content" %>   
+      <%= f.file_field :photo %>
       
       <%= f.text_field :source, :id => "post_source_form", :placeholder => "Source" %>
       
