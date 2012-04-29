@@ -13,6 +13,9 @@ class Blog < ActiveRecord::Base
 	default_scope order: 'blogs.created_at DESC'
 
 	searchable do
-	  text :name	
+	  text :name
+	  text :tags do
+	  	tags.map(&:name)
+	  end	
 	end
 end
