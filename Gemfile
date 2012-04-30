@@ -9,6 +9,7 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'paperclip', '~> 3.0'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
