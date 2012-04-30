@@ -1,4 +1,9 @@
-<div class="pop-up">
+<div class="modal" id="new-post-modal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Edit Blog</h3>
+  </div>
+  <div class="modal-body">
     <%= form_for(@post, :html => { :multipart => true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -10,7 +15,10 @@
       <%= f.text_field :source, :id => "post_source_form", :placeholder => "Source" %>
       
       <%= select_tag( :blog, options_for_select(@blog_hash)) %>
-      
-      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
     <% end %>
+  </div>
 </div>

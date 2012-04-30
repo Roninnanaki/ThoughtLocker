@@ -1,12 +1,20 @@
-<div class="pop-up">
-	<% @blog.tags.build %>
+<div class="modal" id="edit-blog-modal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Edit Blog</h3>
+  </div>
+  <div class="modal-body">
+    <% @blog.tags.build %>
     <%= form_for(@blog) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.text_field :name, :id => "name_form", :placeholder => "Blog Name" %>
       
       <%= text_area_tag "tags_list", @tags, :placeholder => "Tags" %>
-
-      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
     <% end %>
+  </div>
 </div>

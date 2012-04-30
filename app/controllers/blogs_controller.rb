@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
 	def create 
 		@blog = current_user.blogs.build(params[:blog])
 		if @blog.save
-			flash[:success] = "Blog created! Add <a href=\"tags/new\">tags</a>?"
+			flash[:success] = "Blog created!"
 			redirect_to current_user
 		else
 			render 'new'
