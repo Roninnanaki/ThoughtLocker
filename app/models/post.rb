@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 	  :url => "/assets/posts/:id/:style/:basename.:extension",
       :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
 
-    validates_attachment_size :photo, :less_than => 1.2.megabytes
+    # validates_attachment_size :photo, :less_than => 1.2.megabytes
     # validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']
 
 	default_scope order: 'posts.created_at DESC'
