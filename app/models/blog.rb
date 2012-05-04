@@ -11,11 +11,4 @@ class Blog < ActiveRecord::Base
 	accepts_nested_attributes_for :tags, :allow_destroy => true
 	
 	default_scope order: 'blogs.created_at DESC'
-
-	searchable do
-	  text :name
-	  text :tags do
-	  	tags.map(&:name)
-	  end	
-	end
 end

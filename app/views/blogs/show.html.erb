@@ -1,33 +1,38 @@
 <% provide(:title, @blog.name) %>
 <div class="blog">
-  <div class="blog-top-section">
+  <div class="span8 offset3">
     <h2>
       <%= @blog.name %>
+      <%= link_to "Edit", edit_blog_path(@blog), :class => "btn btn-large btn-primary pull-right" %>
     </h2>
-    <%= link_to "Edit", edit_blog_path(@blog), :class => "btn btn-large btn-primary" %>
+    
   </div>
 
-  <div class="span8">
-    <% if @blog.posts.any? %>
-      <h3>Posts (<%= @blog.posts.count %>)</h3>
-      <ol class="posts">
-        <% @blog.posts.each do |post| %>
-          <li>
-            <div class="post">
-              <span class="post-title"><%= post.title %></span>
-              <div class="post-image">
-                <%= image_tag post.photo.url(:post_size) %>
+  <div class="row">
+
+    <div class="span8 offset3">
+      <% if @blog.posts.any? %>
+        <h3>Posts (<%= @blog.posts.count %>)</h3>
+        <ol class="posts">
+          <% @blog.posts.each do |post| %>
+            <li>
+              <div class="post">
+                <span class="post-title"><%= post.title %></span>
+                <div class="post-image">
+                  <%= image_tag post.photo.url(:post_size) %>
+                </div>
+                <span class="post-content"><%= post.content %></span>
+                <span class="post-source"><%= post.source %></span>
+                <span class="post-timestamp">
+                  Posted <%= time_ago_in_words(post.created_at) %> ago.
+                </span>
               </div>
-              <span class="post-content"><%= post.content %></span>
-              <span class="post-source"><%= post.source %></span>
-              <span class="post-timestamp">
-                Posted <%= time_ago_in_words(post.created_at) %> ago.
-              </span>
-            </div>
-          </li>
-        <% end %>
-      </ol>
-    <% end %>
+            </li>
+          <% end %>
+        </ol>
+      <% end %>
+    </div>
   </div>
+
 </div> 
 

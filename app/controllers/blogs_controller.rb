@@ -2,10 +2,11 @@ class BlogsController < ApplicationController
 	before_filter :signed_in_user
 
 	def index
-		@search = Blog.search do
-			fulltext params[:search]
-		end
-		@blogs = @search.results
+		if params["query"]
+		    @blogs = Blog.find(:all, :conditions => ['name LIKE ?', "%#{params["query"]}%"])
+		  else
+		    @blogs = Blog.find(:all)
+		  end
 	end
 		
 	def new
