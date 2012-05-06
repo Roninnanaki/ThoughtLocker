@@ -1,0 +1,12 @@
+<aside class="user-span">
+    <section class="user-panel">
+      <h1>
+        <%= gravatar_for user %>
+        <%= user.name %>
+      </h1>
+      
+      <%= link_to "Post", new_post_path, :class => "btn btn-large btn-primary post-btn", :id => "new-post-modal" %>
+      
+      <%= link_to "New Blog", new_blog_path, :class => "new-blog-link", :id => "new-blog-modal" %>
+    </section>
+  </aside>

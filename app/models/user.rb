@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation
 	has_many :blogs, dependent: :destroy
 
-	has_many :reverse_relationships, foreign_key: "followed_id",
+	has_many :reverse_relationships, foreign_key: "followed_blog_id",
                                    class_name:  "Relationship",
                                    dependent:   :destroy
-    has_many :followed_users, through: :relationships, source: :followed
+    has_many :followed_blogs, through: :relationships, source: :followed
     
 	has_secure_password
     before_save :create_remember_token
@@ -30,6 +30,18 @@ class User < ActiveRecord::Base
 	validates :password, :length => { :minimum => 8 },
 			:format => { :with => VALID_PASSWORD_REGEX }
 	validates :password_confirmation, :presence => true
+
+	def following?(blog)
+	  relationships.find_by_followed_blog_id(blog.id)
+	end
+
+	def follow!(blog)
+	  relationships.create!(followed_blog_id: blog.id)
+	end
+
+	def unfollow!(blog)
+      relationships.find_by_followed_id(blog.id).destroy
+    end
 	
 	private
 
