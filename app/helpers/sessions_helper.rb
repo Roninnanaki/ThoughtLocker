@@ -25,6 +25,10 @@ module SessionsHelper
     user == current_user
   end
 
+  def current_user_made_this_blog?(blog)
+    current_user.blogs.include?(blog)
+  end
+
   def signed_in_user
     unless signed_in?
       store_location

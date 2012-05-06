@@ -32,15 +32,15 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, :presence => true
 
 	def following?(blog)
-	  relationships.find_by_followed_blog_id(blog.id)
+	  self.reverse_relationships.find_by_followed_blog_id(blog.id)
 	end
 
 	def follow!(blog)
-	  relationships.create!(followed_blog_id: blog.id)
+	  self.reverse_relationships.create!(:followed_blog_id => blog.id, :follower_id => self.id)
 	end
 
 	def unfollow!(blog)
-      relationships.find_by_followed_id(blog.id).destroy
+      self.reverse_relationships.find_by_followed_id(blog.id).destroy
     end
 	
 	private

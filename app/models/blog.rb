@@ -7,6 +7,7 @@ class Blog < ActiveRecord::Base
 	belongs_to :user
 	has_many :tags, dependent: :destroy
 	has_many :posts, dependent: :destroy
+	has_many :relationships, foreign_key: "follower_id"
 	
 	accepts_nested_attributes_for :tags, :allow_destroy => true
 	
