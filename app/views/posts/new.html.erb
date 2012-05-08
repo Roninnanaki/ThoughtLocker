@@ -17,7 +17,7 @@
       <%= select_tag( :blog, options_for_select(@blog_hash)) %>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
     <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
     <% end %>
   </div>
