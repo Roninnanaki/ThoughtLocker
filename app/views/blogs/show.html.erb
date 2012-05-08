@@ -13,24 +13,37 @@
 
   <div>
     <% if @blog.posts.any? %>
-      <h3>Posts (<%= @blog.posts.count %>)</h3>
-      <ol class="posts">
+      <ul class="posts">
         <% @blog.posts.each do |post| %>
+
+
           <li>
             <div class="post">
-              <span class="post-title"><%= post.title %></span>
-              <div class="post-image">
-                <%= image_tag post.photo.url(:post_size) %>
+              <div class="post-title">
+                <h3>
+                  <%= post.title %>
+                </h3>
               </div>
-              <span class="post-content"><%= post.content %></span>
-              <span class="post-source"><%= post.source %></span>
-              <span class="post-timestamp">
-                Posted <%= time_ago_in_words(post.created_at) %> ago.
-              </span>
+              <% if !post.photo.url.nil? %>
+                <div class="post-image">
+                  <%= image_tag post.photo.url(:post_size) %>
+                </div>
+              <% end %>
+              <div class="post-content">
+                <%= post.content %>
+              </div>
+              <div class="post-source">
+                <%= post.source %>
+                <span class="post-timestamp pull-right">
+                  Posted <%= time_ago_in_words(post.created_at) %> ago.
+                </span>
+              </div>
             </div>
           </li>
+
+
         <% end %>
-      </ol>
+      </ul>
     <% end %>
   </div>
 

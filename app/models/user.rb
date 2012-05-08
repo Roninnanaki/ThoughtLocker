@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation
 	has_many :blogs, dependent: :destroy
 
-	has_many :reverse_relationships, foreign_key: "followed_blog_id",
+	has_many :relationships, foreign_key: "followed_blog_id",
                                    class_name:  "Relationship",
                                    dependent:   :destroy
     has_many :followed_blogs, through: :relationships, source: :followed
@@ -32,15 +32,16 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, :presence => true
 
 	def following?(blog)
-	  self.reverse_relationships.find_by_followed_blog_id(blog.id)
+	  self.relationships.find_by_followed_blog_id(blog.id)
 	end
 
 	def follow!(blog)
-	  self.reverse_relationships.create!(:followed_blog_id => blog.id, :follower_id => self.id)
+		puts "blog stuff " + blog.id.to_s + " " + self.id.to_s
+	  relationships.create(follower_id: 1, followed_blog_id: blog.id)
 	end
 
 	def unfollow!(blog)
-      self.reverse_relationships.find_by_followed_id(blog.id).destroy
+      self.relationships.find_by_followed_id(blog.id).destroy
     end
 	
 	private

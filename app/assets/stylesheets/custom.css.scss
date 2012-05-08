@@ -236,3 +236,41 @@ aside .span4{
 	margin-bottom: 10px;
 }
 
+.post {
+    width: 540px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: #2a2a2a;
+    background-color: #2a2a2a;
+    color: whitesmoke;
+    margin-bottom: 18px;
+}
+
+.post-title {
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.post-image {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.post-content {
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.post-source {
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+

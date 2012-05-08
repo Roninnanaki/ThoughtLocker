@@ -3,6 +3,7 @@ class RelationshipsController < ApplicationController
 
   def create
     @blog = Blog.find(params[:relationship][:followed_blog_id])
+    puts "HEY IM HERE..." + @blog.id.to_s + " " + @blog.name
     current_user.follow!(@blog)
     redirect_to @blog
   end

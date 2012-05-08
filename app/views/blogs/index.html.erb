@@ -1,19 +1,25 @@
 <% provide(:title, "Search") %>
 <div class="span8">
-	<ul class="users">
+	<ul class="blogs">
 	  <% @blogs.each do |blog| %>
 	    <li>
-	    	<div>
-	    		<h3>
-	    			<%= link_to blog.name, blog %>
-	    		</h3>
-	    		<h3>
-	    			<%= blog.name %>
-	    		</h3>
-	    		<p>
-	    			Tags<%= blog.tags.to_s %>
-	    		</p>
-	    		Follow
+	    	<div class="content">
+	    		<div>
+	    			<h3>
+		    			<%= link_to blog.name, blog %>
+		    		</h3>
+		    		<h3>
+		    			<% user = User.find(blog.user_id) %>
+		    			<%= user.name%>
+		    		</h3>
+		    		<div>
+		    			<% blog.tags.each do |tag|%>
+		    				<%= tag.name + " " %>
+		    			<% end -%>
+		    		</div>
+	    		</div>
+	    		
+	    		
 	    	</div>
 	      
 	    </li>
