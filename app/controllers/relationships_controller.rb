@@ -2,6 +2,7 @@ class RelationshipsController < ApplicationController
   before_filter :signed_in_user
 
   def create
+    puts 1/0
     @blog = Blog.find(params[:relationship][:followed_blog_id])
     puts "HEY IM HERE..." + @blog.id.to_s + " " + @blog.name
     current_user.follow!(@blog)

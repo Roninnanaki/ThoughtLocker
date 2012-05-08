@@ -6,7 +6,6 @@
       <% if current_user_made_this_blog?(@blog) %>
         <%= link_to "Edit", edit_blog_path(@blog), :class => "btn btn-large btn-primary pull-right" %>
       <% else %>
-        <%= render 'follow_form' if signed_in? %>
       <% end %>
     </h2>
   </div>
@@ -24,9 +23,9 @@
                   <%= post.title %>
                 </h3>
               </div>
-              <% if !post.photo.url.nil? %>
+              <% if post.photo.url(:post_size).present? %>
                 <div class="post-image">
-                  <%= image_tag post.photo.url(:post_size) %>
+                  <%= image_tag post.photo.url(:post_size)  %>
                 </div>
               <% end %>
               <div class="post-content">

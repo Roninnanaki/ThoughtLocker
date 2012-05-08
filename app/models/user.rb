@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
 	def follow!(blog)
 		puts "blog stuff " + blog.id.to_s + " " + self.id.to_s
-	  relationships.create(follower_id: 1, followed_blog_id: blog.id)
+	  relationships.create!(follower_id: self.id, followed_blog_id: blog.id)
 	end
 
 	def unfollow!(blog)

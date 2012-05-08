@@ -1,7 +1,5 @@
-<li>
+<li class="blog-grid">
   <span class="content"><%= link_to blog.name, blog %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(blog.created_at) %> ago.
-  </span>
+  
   <%= link_to "Edit", edit_blog_path(blog), :id => "edit-blog-form" %>
 </li>

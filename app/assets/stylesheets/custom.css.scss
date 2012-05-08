@@ -272,11 +272,30 @@ aside .span4{
     padding-left: 20px;
 }
 
-.tags {
+.name-title {
+    display: inline-block;
+    vertical-align: middle;
+}
 
+.tags {
+    display: inline-block;
+    margin-left: 20px;
 }
 
 ul {
   list-style-type: none;
 }
 
+img[alt="Missing"]{
+  display: none;
+}
+
+.blog-grid{
+   border: 1px solid #E8E8E8;
+  width: 100px;
+  display: inline-block;
+  margin: 5px;
+  background-color: whiteSmoke;
+  padding: 5px !important;
+  border-radius: 4px;
+}
