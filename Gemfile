@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.22.5'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'will_paginate', '3.0.3'
