@@ -1,9 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+admin = User.find_or_create_by!(email: "admin@thoughtlocker.com") do |u|
+  u.name = "admin"
+  u.password = "admin123"
+  u.password_confirmation = "admin123"
+end
+
+blog = admin.blogs.find_or_create_by!(name: "My First Blog")
+blog.posts.find_or_create_by!(title: "Welcome to ThoughtLocker") do |p|
+  p.content = "This is a sample post to get you started."
+end
+
+puts "Seed complete. Sign in with: admin@thoughtlocker.com / admin123"
