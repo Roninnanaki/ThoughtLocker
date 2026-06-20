@@ -1,0 +1,10 @@
+<% provide(:title, @user.name) %>
+<div class="col-md-8">
+  <% if @user.blogs.any? %>
+    <h3>Blogs (<%= @user.blogs.count %>)</h3>
+    <ol class="list-group">
+      <%= render @blogs %>
+    </ol>
+    <%= will_paginate @blogs %>
+  <% end %>
+</div>

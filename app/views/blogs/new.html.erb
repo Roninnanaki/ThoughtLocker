@@ -1,0 +1,11 @@
+<% provide(:title, "New Blog") %>
+<div class="col-md-8">
+  <h3>Create Blog</h3>
+  <%= form_for(@blog) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mb-3">
+      <%= f.text_field :name, id: "name_form", placeholder: "Blog Name", class: "form-control" %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>

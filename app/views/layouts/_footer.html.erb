@@ -1,0 +1,14 @@
+<footer class="footer mt-5 py-3 bg-light">
+  <div class="container text-center">
+    <small class="text-muted">
+      <%= link_to "ThoughtLocker", (signed_in? ? current_user : root_path) %>
+      by Justin Carter
+    </small>
+    <nav>
+      <ul class="list-inline">
+        <li class="list-inline-item"><%= link_to "About", about_path %></li>
+        <li class="list-inline-item"><%= link_to "Contact", contact_path %></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

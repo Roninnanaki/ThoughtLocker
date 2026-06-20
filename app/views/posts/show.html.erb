@@ -1,0 +1,10 @@
+<% provide(:title, @post.title) %>
+<div class="col-md-8">
+  <h2><%= @post.title %></h2>
+  <% if @post.photo.attached? %>
+    <%= image_tag @post.photo.variant(resize_to_limit: [500, 500]), class: "img-fluid mb-3" %>
+  <% end %>
+  <p><%= @post.content %></p>
+  <p class="text-muted"><%= @post.source %></p>
+  <small class="text-muted">Posted <%= time_ago_in_words(@post.created_at) %> ago.</small>
+</div>

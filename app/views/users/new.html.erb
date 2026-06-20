@@ -1,0 +1,23 @@
+<% provide(:title, "Sign up") %>
+<div class="text-center">
+  <h1>Welcome to ThoughtLocker</h1>
+  <h2>Sign up and start blogging</h2>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <%= form_for(@user) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="mb-3">
+        <%= f.text_field :email, id: "email_form", placeholder: "youremail@wherever.com", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.password_field :password, id: "password_form", placeholder: "Password", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.password_field :password_confirmation, id: "password_confirmation_form", placeholder: "Password Confirmation", class: "form-control" %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+    <% end %>
+    <p class="mt-3">Old user? <%= link_to "Sign in", signin_path %></p>
+  </div>
+</div>

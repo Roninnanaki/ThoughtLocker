@@ -1,0 +1,24 @@
+<% provide(:title, "New Post") %>
+<div class="col-md-8">
+  <h3>New Post</h3>
+  <%= form_for(@post, html: { multipart: true }) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mb-3">
+      <%= f.text_field :title, id: "post_title_form", placeholder: "Title", class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.text_area :content, id: "post_content_form", placeholder: "Content", class: "form-control", rows: 5 %>
+    </div>
+    <div class="mb-3">
+      <%= f.file_field :photo, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.text_field :source, id: "post_source_form", placeholder: "Source", class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Blog</label>
+      <%= select_tag :blog, options_for_select(@blog_hash), class: "form-select" %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
